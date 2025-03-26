@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeatsLyrics</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+  <div class="container">
+    <!-- Navigation Bar -->
+    <header class="nav">
+      <div class="nav_left">
+
+        <div class="hamburger">
+          <img src="/asset/hamburger.svg" alt="">
+        </div>
+        <img src="asset/logo.svg" alt="BeatsLyrics Logo" class="logo" />
+        <img src="asset/home.svg" alt="Home" class="nav-icon" />
+        <div class="search-container">
+          <img src="asset/search.svg" class="search-icon" alt="Search" />
+          <input type="text" placeholder="What do you want to play?" class="search-bar" />
+          <div class="divider"></div>
+          <img src="asset/browse.svg" class="upload-icon" alt="Browse from Computer" />
+        </div>
+      </div>
+
+      <div class="nav_right">
+        <button class="btn premium" aria-label="Explore Premium">Login</button>
+        <button class="btn install " transition: all 0.3s ease-in-out>SignUp</button>
+      </div>
+    </header>
+
+    <!-- Library and Main Content -->
+    <div class="main_content">
+      <!-- Library -->
+      <div class="library">
+        <div class="library-controls">
+          <button class="library-btn">
+            <img id="library_img" src="asset/library.svg" alt="Library Icon" />
+            <span class="library-text">Your Library</span>
+          </button>
+          <button class="create_btn">+ Create</button>
+
+           
+        <button class="close-btn" style="display: none;">
+          <img src="/asset/close_btn.svg" alt="Close">
+        </button>
+        </div>
+        <div class="ArtistList">
+          <div class="Recents">
+            <div class="search-wrapper">
+              <button id="search_btn">
+                <img src="asset/search.svg" width="20px" height="20px"/>
+              </button>
+              <input type="text" class="search-input" placeholder="Search...">
+            </div>
+          
+            <button id="recent_btn">
+              <span>Recents</span>
+              <img src="asset/List.svg" width="16px" height="16px" />
+            </button>
+          </div>
+          <div class="Artist_content">
+            <ul>
+              <li>
+                <!--  -->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Song Storage -->
+      <div class="song_storage">
+
+       <div class="top">
+          <div class="music_options">
+          <button id="All">All</button>
+          <button id="Music">Music</button>
+          <button id="Podcasts">Podcasts</button>
+          </div>
+
+         <div class="social">
+          <a href="#"><img src="/asset/facebook.svg" alt=""></a>
+          <a href="#"><img src="/asset/twitter.svg" alt=""></a>
+          <a href="#"><img src="/asset/instagram.svg" alt=""></a>
+          </div>
+       </div>
+
+       <div class="middle">
+        <div class="spotifyPlayLists">
+            <h2>BeatLyrics Playlists</h2>
+            <div class="cardContainer">
+                <div class="card">
+                    <div class="imageContainer">
+                        <img src="/asset/sanman.jpg" alt="Happy Hits">
+                        <div class="playButton">
+                            <img src="/asset/play_btn.svg" alt="Play">
+                        </div>
+                    </div>
+                    <h2>Happy Hits</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint, modi.</p>
+                </div>
+    
+                <div class="card">
+                    <div class="imageContainer">
+                        <img src="/asset/sami.jpg" alt="Rock Vibes">
+                        <div class="playButton">
+                            <img src="/asset/play_btn.svg" alt="Play">
+                        </div>
+                    </div>
+                    <h2>Rock Vibes</h2>
+                    <p>Experience the best of rock music with this power-packed playlist.</p>
+                </div>
+    
+                <div class="card">
+                    <div class="imageContainer">
+                        <img src="/asset/tb.png" alt="Chill Beats">
+                        <div class="playButton">
+                            <img src="/asset/play_btn.svg" alt="Play">
+                        </div>
+                    </div>
+                    <h2>Chill Beats</h2>
+                    <p>Relax and unwind with these smooth and soothing tracks.</p>
+                </div>
+
+                <div class="card">
+                  <div class="imageContainer">
+                      <img src="/asset/tb.png" alt="Chill Beats">
+                      <div class="playButton">
+                          <img src="/asset/play_btn.svg" alt="Play">
+                      </div>
+                  </div>
+                  <h2>Chill Beats</h2>
+                  <p>Relax and unwind with these smooth and soothing tracks.</p>
+              </div>
+              
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+        <!--Footer-->
+        <footer>
+          <div class="footer-container">
+              <div class="footer-links">
+                  <div>
+                      <h2>Company</h2>
+                      <ul>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#">Jobs</a></li>
+                          <li><a href="#">For the Record</a></li>
+                      </ul>
+                  </div>
+                  <div>
+                      <h2>Communities</h2>
+                      <ul>
+                          <li><a href="#">For Artists</a></li>
+                          <li><a href="#">Developers</a></li>
+                          <li><a href="#">Advertising</a></li>
+                          <li><a href="#">Investors</a></li>
+                          <li><a href="#">Vendors</a></li>
+                      </ul>
+                  </div>
+                  <div>
+                      <h2>Useful Links</h2>
+                      <ul>
+                          <li><a href="#">Support</a></li>
+                          <li><a href="#">Free Mobile App</a></li>
+                      </ul>
+                  </div>
+              </div>
+             
+              <div class="footer-bottom">
+                  <ul>
+                      <li><a href="#">Legal</a></li>
+                      <li><a href="#">Privacy Center</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Cookies</a></li>
+                      <li><a href="#">About Ads</a></li>
+                      <li><a href="#">Accessibility</a></li>
+                  </ul>
+                  <p>&copy; 2025 Spotify AB</p>
+              </div>
+          </div>
+      </footer> 
+        
+
+
+      </div>
+      
+    </div>
+
+
+    <div class="playbar">
+     
+      <div class="About_music">
+        
+        <img src="/asset/music.svg" alt="sanam">
+        <div class="music_name ">
+          <p>Unknown</p>
+          <p>unknown</p>
+        </div>
+
+        <button class="plus_expand">
+          <img src="/asset/plus_btn.svg" alt="expand">
+        </button>
+      </div>
+
+
+      <div class="seekBar">
+
+
+        <div class="seekBar_btn">
+
+          <button>
+            <img src="/asset/shuffle.svg" alt="shuffle">
+          </button>
+          
+          <button>
+            <img src="/asset/previous_btn.svg" alt="previous_btn">
+          </button>
+          
+          <button>
+            <img src="asset/seek_play.svg" alt="play">
+          </button>
+          
+          <button>
+            <img src="/asset/next_btn.svg" alt="next">
+          </button>
+          
+          <button>
+            <img src="/asset/repeat.svg" alt="repeat">
+          </button>
+        </div>
+
+
+
+
+        <div class="music_time">
+
+          <div class="starttime">00:00</div>
+          <div class="seekTime">
+            <input type="range" min="0" max="100" value="0" class="seek-slider" id="seekSlider">
+          </div>
+          <div class="endtime">00:00</div>
+        </div>
+      </div>
+
+
+      <div class="volume_more">
+        <button>
+          <img src="/asset/Lyrics.svg" alt="Lyrics">
+        </button>
+        
+        <button>
+          <img src="/asset/Queues.svg" alt="Queues">
+        </button>
+        
+        <button>
+          <img src="/asset/ConnectToDevice.svg" alt="Connect to Device">
+        </button>
+        
+        <button class="volume-control">
+          <img src="/asset/Audio.svg" alt="Volume">
+          <input type="range" min="0" max="100" class="volume-slider">
+        </button>
+        
+        <button>
+          <img src="/asset/fullScreen.svg" alt="Full Screen">
+        </button>
+      </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,985 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #121212;
+  color: white;
+}
+
+/* Navigation Bar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  padding: 12px 24px;
+}
+
+.nav_left,
+.nav_right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav_left img {
+  filter: invert(1);
+}
+/* Search Bar */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 300px; /* Adjust width as needed */
+  border: 1px solid #333333;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.search-bar {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 8px 10px 8px 35px; /* Left padding for search icon */
+  font-size: 14px;
+  background: transparent;
+  color: white;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: #ccc;
+  margin: 0 10px;
+}
+
+.upload-icon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+  margin-right: 10px;
+}
+
+.upload-icon:hover {
+  opacity: 1;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#notification {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+.premium {
+  background: white;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.premium:hover {
+  border-color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.install:hover {
+  border-color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Main Content Layout */
+.main_content {
+  display: flex;
+  width: 100vw;
+  height: 75vh;
+  gap: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #181818;
+}
+
+/* Library Section */
+
+.library {
+  width: 35vw;
+  padding: 10px;
+  background-color: #121212;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden; /* Ensures content doesn't spill */
+}
+
+/* Library Controls (Container for Buttons & Arrow) */
+.library-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  background-color: #121212;
+  padding: 10px;
+  z-index: 10; /* Ensures it stays above other content */
+}
+
+/* Library Button */
+.library-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  border: none;
+}
+
+#library_img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+/* Create Button */
+.create_btn {
+  background: transparent;
+  border: 1px solid grey;
+  box-shadow: none;
+  outline: none;
+  border-radius: 10px;
+  width: 70px;
+  max-width: 80px;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.3s ease-in-out;
+  margin: 5px;
+}
+
+.create_btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.song_storage {
+  background-color: #181818;
+  overflow-y: auto;
+}
+
+.Recents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#search_btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  filter: invert(1);
+  z-index: 2;
+}
+
+.search-input {
+  position: absolute;
+  left: 30px;
+  width: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.search-input.active {
+  width: 180px;
+  padding: 5px 10px;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+#recent_btn {
+  background: transparent; /* Makes the background transparent */
+  border: none; /* Removes border */
+  box-shadow: none; /* Removes any shadow */
+  outline: none; /* Removes focus outline */
+  cursor: pointer; /* Keeps pointer cursor */
+  filter: invert(1);
+}
+
+#search_btn img,
+#recent_btn img {
+  opacity: 0.7; /* Adjust transparency for icons */
+}
+
+#search_btn:hover img,
+#recent_btn:hover img {
+  opacity: 1; /* Makes icons fully visible on hover */
+}
+
+.ArtistList {
+  max-height: 60vh; /* Adjust as needed */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding-right: 5px;
+  margin-top: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #181818;
+}
+
+.Artist_content img {
+  margin: 10px;
+  border-radius: 10px;
+}
+/* Optional: Style the scrollbar */
+/* Remove scrollbar arrows */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Customize scrollbar width */
+::-webkit-scrollbar {
+  width: 6px; /* Adjust thickness */
+  background: transparent; /* Fully transparent */
+  margin-left: 5px;
+}
+
+/* Customize scrollbar handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background: gray; /* Green with transparency */
+  border-radius: 5px; /* Round edges */
+}
+
+/* Thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: gray; /* Darker green on hover */
+}
+
+/* Customize scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: transparent; /* Fully transparent track */
+}
+
+.Recents {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  background: transparent;
+}
+
+#recent_btn {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+/* Container for the list */
+.Artist_content {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 10px;
+  /* border: 1px solid white; */
+  padding: 10px;
+  background-color: #121212;
+}
+
+/* List styling */
+.Artist_content ul {
+  padding: 0;
+  width: 100%;
+  margin: 0;
+}
+
+/* List item styling */
+.Artist_content ul li {
+  list-style-type: none;
+  padding: 15px 20px; /* Increased padding for better spacing */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between items */
+  gap: 20px; /* Increased gap for better spacing */
+  border-bottom: 1px solid #ddd; /* Lighter border for subtle separation */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for list items */
+.Artist_content ul li:hover {
+  background-color: #181830 ;
+}
+
+/* Image styling */
+.Artist_content ul li img {
+  width: 35px;
+  height: 35px;
+  border-radius: 8px; /* Rounded corners for the image */
+}
+
+/* Song info styling */
+.Artist_content ul li .info {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Space between song name and artist */
+}
+
+/* Song name styling */
+.Artist_content ul li .info .songName {
+  font-size: 12px;
+  font-weight: bold;
+  color: white; /* Darker text for better readability */
+}
+
+/* Artist name styling */
+.Artist_content ul li .info .songArtist {
+  font-size: 12px;
+  color: #666; /* Lighter text for subtlety */
+}
+
+/* Play button container */
+.playNow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #0ad852; /* Green background for play button */
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Smooth hover effect */
+}
+
+/* Play button hover effect */
+.playNow:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  background-color: #07b84a; /* Darker green on hover */
+}
+
+/* Play button icon styling */
+.playNow img {
+  width: 14px !important;
+  height: 14px !important;
+  filter: invert(1); /* Make the icon white */
+}
+
+.song_storage {
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+  padding: 10px;
+  background-color: #121212;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#All,
+#Music,
+#Podcasts {
+  background: transparent;
+  border: 1px solid grey;
+  box-shadow: none;
+  outline: none;
+  border-radius: 10px;
+  width: 70px;
+
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.3s ease-in-out;
+  margin: 5px;
+}
+
+#All:hover,
+#Music:hover,
+#Podcasts:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.social {
+  display: flex;
+  gap: 25px;
+  padding-right: 25px;
+}
+
+.social a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  filter: invert(1);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-out;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.social a:hover {
+  transform: scale(1.1);
+}
+
+.social a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      40px circle at var(--mouse-x) var(--mouse-y),
+      var(--brand-color),
+      transparent 70%
+  );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.social a:hover::before {
+  opacity: 0.8;
+}
+
+.social a img {
+  width: 60%;
+  height: auto;
+  z-index: 2;
+  filter: brightness(0.8);
+  transition: filter 0.3s;
+}
+
+.social a:hover img {
+  filter: brightness(1.2);
+}
+
+/* Facebook */
+.social a:nth-child(1) {
+  --brand-color: #E7880D;
+}
+
+/* Twitter */
+.social a:nth-child(2) {
+  --brand-color: #E25E0D;
+}
+
+/* Instagram */
+.social a:nth-child(3) {
+  --brand-color: #1ECF93;
+}
+
+.middle {
+  display: flex;
+  padding: 10px;
+
+  margin-top: 10px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.card {
+  width: 150px;
+  padding: 10px;
+  background: #181818;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+  margin-top: 20px;
+  font-size: 11px;
+  position: relative; /* For absolute positioning of the button */
+  overflow: hidden;
+}
+
+.card h2,
+.card p {
+  padding-top: 10px;
+  text-align: justify;
+}
+
+.imageContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.card img {
+  width: 120px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+.playButton {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #1db954; /* Spotify Green */
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px); /* Initially hidden below */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.playButton img {
+  width: 16px;
+  height: 16px;
+}
+
+.playButton:hover {
+  transform: scale(1.1);
+}
+
+.card:hover {
+  border: 0.5px solid #252525;
+  background-color: #252525;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.card:hover .playButton {
+  opacity: 1;
+  transform: translateY(0); /* Moves up to its position */
+}
+
+footer {
+  color: white;
+  padding: 20px 40px;
+  position: relative;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+  bottom: 0;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 50px;
+}
+
+.footer-links h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+
+.footer-bottom ul {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.footer-bottom ul li a {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-bottom ul li a:hover {
+  color: white;
+}
+
+.playbar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  /* border: 1px solid white; */
+}
+
+.About_music {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  /* border: 1px solid white; */
+}
+
+.About_music img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.music_name {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 5px;
+  align-items: center;
+}
+
+.music_name p {
+  font-size: 13px;
+}
+
+.plus_expand {
+  width: 20px; /* Set button width */
+  height: 20px; /* Set button height */
+  background: transparent; /* Remove default button background */
+  border: none; /* Remove default border */
+  padding: 0; /* Remove extra padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  filter: invert(1);
+}
+
+.plus_expand img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.seekBar {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+
+  /* border: 1px solid white; */
+}
+
+.seekBar_btn {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  gap: 20px;
+}
+.seekBar_btn button {
+  width: 15px;
+  border: none;
+  outline: none;
+  filter: invert(1);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.music_time {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 0px 5px;
+  gap: 10px;
+
+  /* border: 1px solid white; */
+}
+
+.volume_more {
+  width: 25%; /* Adjust this width if needed */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* 15px gap between all buttons */
+  padding: 0 10px; /* Add padding to prevent edge crowding */
+  /* border: 1px solid white;  */
+}
+
+.volume_more button {
+  width: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: invert(1);
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+/* Specific styles for the volume-control button */
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Smaller gap between icon and slider inside the button */
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: auto; /* Allow the button to expand as needed */
+  min-width: 120px; /* Ensure minimum width for the volume slider */
+}
+
+.volume-control img {
+  width: 12px; /* Adjust icon size */
+  height: 14px;
+}
+
+/* Volume slider styles */
+.volume-slider {
+  width: 80px; /* Adjust width as needed */
+  height: 4px; /* Make the slider thin */
+  background: linear-gradient(
+    to right,
+    #0ad852 0%,
+    #1db954 var(--slider-progress, 50%),
+    #555 var(--slider-progress, 50%),
+    #555 100%
+  ); /* Green and gray gradient */
+  border-radius: 2px; /* Rounded edges for the track */
+  outline: none; /* Remove default focus outline */
+  appearance: none; /* Remove default styling */
+  -webkit-appearance: none; /* Remove default styling for WebKit browsers */
+  -moz-appearance: none; /* Remove default styling for Firefox */
+  cursor: pointer;
+}
+
+/* Customize the slider thumb (the draggable circle) */
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default styling */
+  appearance: none; /* Remove default styling */
+  width: 12px; /* Size of the thumb */
+  height: 12px;
+  background: #1db954; /* Green color for the thumb */
+  border-radius: 50%; /* Make it circular */
+  cursor: pointer;
+  margin-top: -4px; /* Adjust thumb position vertically */
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Customize the slider track (the filled part) */
+.volume-slider::-webkit-slider-runnable-track {
+  height: 4px; /* Height of the track */
+  border-radius: 2px; /* Rounded edges for the track */
+}
+
+.volume-slider::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+}
+
+.seekTime {
+  width: 45%;
+  position: relative;
+}
+
+.seek-slider {
+  width: 100%;
+  -webkit-appearance: none; /* Remove default styling */
+  appearance: none;
+  background: transparent; /* Make the track transparent */
+  cursor: pointer;
+}
+
+.seek-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    #4caf50 0%,
+    #4caf50 0%,
+    #ddd 0%,
+    #ddd 100%
+  );
+  border-radius: 5px;
+}
+
+.seek-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #4caf50;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -4px; /* Center the thumb vertically */
+}
+
+.seek-slider::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(
+    to right,
+    #4caf50 0%,
+    #4caf50 0%,
+    #ddd 0%,
+    #ddd 100%
+  );
+  border-radius: 5px;
+}
+
+.seek-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #4caf50;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hamburger{
+  display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+  .library {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    transition: all 0.3s ease;
+    z-index: 100;
+    background-color: black !important; 
+    width: 300px;
+  }
+  
+  .library.active {
+    left: 0;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: block !important;
+    filter: invert();
+  }
+  
+  .song_storage {
+    width: 100vw;
+  }
+  
+  .playbar {
+    width: 95vw;
+    
+  }
+  
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Styles for tablets */
+}
+
+@media screen and (min-width: 1024px) {
+  /* Styles for desktops */
+}
